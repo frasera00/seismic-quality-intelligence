@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scientific-ml-template"
+version = "0.1.0"
+description = "A reproducible template for scientific machine learning projects."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Fabio Rasera" }
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "scikit-learn>=1.3",
+  "pyyaml>=6.0",
+  "matplotlib>=3.7",
+  "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "ruff>=0.1",
+  "pre-commit>=3.5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scientific_ml_template"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = [
+  "notebooks",
+  "data",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "B",
+  "UP",
+  "SIM",
+]
+ignore = [
+  "E501",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["scientific_ml_template"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra -q --cov=scientific_ml_template --cov-report=term-missing"
+
+[tool.coverage.run]
+branch = true
+source = ["scientific_ml_template"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 70

@@ -1,0 +1,30 @@
+project:
+  name: scientific-ml-template
+  seed: 42
+  output_dir: reports
+
+data:
+  raw_path: data/raw
+  processed_path: data/processed
+  test_size: 0.2
+  validation_size: 0.2
+
+features:
+  scaler: standard
+  include_statistics: true
+  include_spectral_features: false
+
+model:
+  name: random_forest
+  random_state: 42
+  n_estimators: 300
+  max_depth: null
+  n_jobs: -1
+
+training:
+  cv_folds: 5
+  scoring: f1_weighted
+
+evaluation:
+  save_predictions: true
+  save_figures: true
