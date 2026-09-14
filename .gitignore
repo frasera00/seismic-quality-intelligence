@@ -1,55 +1,29 @@
-# Python bytecode and caches
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
+.pytest_cache/
+.ruff_cache/
 
 # Virtual environments
 .venv/
 venv/
 env/
 
-# Packaging and build artifacts
-build/
-dist/
-*.egg-info/
-
-# Test and coverage artifacts
-.pytest_cache/
-.coverage
-coverage.xml
-htmlcov/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# IDEs
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Environment files and secrets
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
 
-# Large datasets: retain only .gitkeep markers
-data/raw/*
-!data/raw/.gitkeep
+# Generated model and experiment output
+reports/
+output/
 
-data/interim/*
-!data/interim/.gitkeep
+# Local model files and local tooling
+.ollama/
 
-data/processed/*
-!data/processed/.gitkeep
-
-data/external/*
-!data/external/.gitkeep
-
-# Generated ML outputs
-models/
-artifacts/
-mlruns/
-wandb/
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

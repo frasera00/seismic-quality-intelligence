@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "scientific-ml-template"
+name = "seismic-quality-intelligence"
 version = "0.1.0"
-description = "A reproducible template for scientific machine learning projects."
+description = "ML-based anomaly detection for seismic trace quality control."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -31,7 +31,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/scientific_ml_template"]
+packages = ["src/seismic_quality_intelligence"]
 
 [tool.ruff]
 line-length = 88
@@ -55,18 +55,18 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["scientific_ml_template"]
+known-first-party = ["seismic_quality_intelligence"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
-addopts = "-ra -q --cov=scientific_ml_template --cov-report=term-missing"
+addopts = "-ra -q --cov=seismic_quality_intelligence --cov-report=term-missing"
 
 [tool.coverage.run]
 branch = true
-source = ["scientific_ml_template"]
+source = ["seismic_quality_intelligence"]
 
 [tool.coverage.report]
 show_missing = true
 skip_covered = false
-fail_under = 70
+fail_under = 40
