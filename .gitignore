@@ -27,3 +27,28 @@ output/
 Thumbs.db
 .vscode/
 .idea/
+
+# Raw and derived seismic data
+data/raw/
+data/interim/
+data/processed/
+*.sgy
+*.segy
+*.sgy.gz
+*.segy.gz
+
+# Generated experiment artifacts
+reports/
+output/
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example

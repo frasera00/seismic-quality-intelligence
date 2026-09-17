@@ -1,0 +1,63 @@
+dataset:
+  id: usgs_2019_002_fa_mcs
+  title: >
+    Multichannel seismic-reflection and navigation data collected using an
+    Applied Acoustics S-Boom and a Geometrics GeoEel digital 32-channel
+    streamer during USGS field activity 2019-002-FA
+  provider: U.S. Geological Survey
+  survey: USGS field activity 2019-002-FA
+  location: Cape Cod Bay, Massachusetts, United States
+  acquisition_year: 2019
+  data_type: marine multichannel seismic-reflection data
+  acquisition_system:
+    source: Applied Acoustics S-Boom
+    receiver: Geometrics GeoEel digital 32-channel streamer
+  approximate_coverage_km: 580
+  format: SEG-Y
+  data_status: raw SEG-Y trace data with CMP and trackline navigation
+  intended_use:
+    - Real-data unsupervised seismic trace QC case study
+    - SEG-Y ingestion and header-inspection development
+    - Qualitative anomaly ranking and overlay visualization
+  not_intended_use:
+    - Supervised performance claims without independent QC labels
+    - Replacement for the synthetic labeled benchmark
+
+access:
+  landing_page: https://cmgds.marine.usgs.gov/data-releases/datarelease/10.5066-P99DR4PN/
+  metadata_page: https://cmgds.marine.usgs.gov/catalog/whcmsc/DRB_data_release/DRB_P99DR4PN/2019-002-FA_MCS_meta.html
+  doi: https://doi.org/10.5066/P99DR4PN
+  download_strategy: >
+    Inspect available MCS products and metadata first. Download one small,
+    documented SEG-Y file or approved subset only after confirming file size,
+    local storage, and organizational policy.
+
+licensing:
+  status: U.S. Government public-domain data
+  attribution: >
+    Cite the U.S. Geological Survey as the originator and retain the source
+    metadata and DOI with all derived project outputs.
+  redistribution_note: >
+    Raw seismic files are excluded from version control. Commit only code,
+    manifests, source citations, derived summaries, and permitted small figures.
+
+project_protocol:
+  split_rule: >
+    Do not mix traces from the same real survey segment across fitting and
+    evaluation partitions. Use line, profile, shot-range, or spatial blocks
+    as groups once headers and navigation are inspected.
+  evaluation_rule: >
+    Because ground-truth trace-defect labels are not supplied, report this as
+    an unsupervised field-data case study. Do not report precision, recall,
+    F1, ROC AUC, or PR AUC as field-data results unless labels are created
+    through an independent documented QC process.
+  initial_scope: >
+    Start with header inspection, a short line or profile segment, raw and
+    robust visualization, model score ranking, and top-anomaly trace review.
+
+provenance:
+  accessed_on: 2026-09-17
+  source_citation: >
+    U.S. Geological Survey. High-resolution geophysical and geological data
+    collected in Cape Cod Bay, Massachusetts during USGS Field Activities
+    2019-002-FA and 2019-034-FA. Data release 10.5066/P99DR4PN.
