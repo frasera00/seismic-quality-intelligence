@@ -28,11 +28,16 @@ def test_generate_clean_trace_returns_valid_trace() -> None:
 
 def test_inject_anomaly_dead_trace_zeros() -> None:
     rng = np.random.default_rng(0)
-    _, trace = generate_clean_trace(duration=2.0, dt=0.002, f0=25.0, rng=rng)
+    _, trace = generate_clean_trace(
+        duration=2.0,
+        dt=0.002,
+        f0=25.0,
+        rng=rng,
+    )
 
-    anom = inject_anomaly(trace, "dead_trace", rng=rng)
+    anom, record = inject_anomaly(trace, "dead_trace", rng=rng)
 
-    assert np.allclose(anom, 0.0)
+    np.testing.assert_array_equal(anom, np.zeros_like(trace))
 
 
 def test_generate_dataset_has_expected_shape_and_labels() -> None:
