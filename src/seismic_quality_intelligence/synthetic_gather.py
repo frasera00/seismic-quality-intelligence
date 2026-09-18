@@ -6,7 +6,6 @@ from typing import Literal
 
 import numpy as np
 
-
 GatherAnomalyType = Literal[
     "spike",
     "dead_trace",
@@ -54,7 +53,7 @@ def ricker_wavelet(
     )
 
     pi_f_t = np.pi * f0 * time
-    wavelet = (1.0 - 2.0 * pi_f_t**2) * np.exp(-pi_f_t**2)
+    wavelet = (1.0 - 2.0 * pi_f_t**2) * np.exp(-(pi_f_t**2))
 
     return time, wavelet
 
@@ -106,9 +105,7 @@ def add_wavelet_at_time(
     start_wavelet = start_trace - (sample_index - half_length)
     end_wavelet = start_wavelet + (end_trace - start_trace)
 
-    trace[start_trace:end_trace] += (
-        amplitude * wavelet[start_wavelet:end_wavelet]
-    )
+    trace[start_trace:end_trace] += amplitude * wavelet[start_wavelet:end_wavelet]
 
 
 def generate_clean_gather(
@@ -296,9 +293,7 @@ def inject_trace_anomaly(
             polarity = rng.choice([-1.0, 1.0])
             trace[sample_index] += polarity * scale
 
-        metadata["sample_indices"] = sorted(
-            int(index) for index in spike_indices
-        )
+        metadata["sample_indices"] = sorted(int(index) for index in spike_indices)
         metadata["parameters"] = {
             "n_spikes": n_spikes,
             "spike_scale": spike_scale,
@@ -376,7 +371,7 @@ def generate_gather_dataset(
     anomaly_types = []
     anomaly_records = []
 
-    for gather_index in range(n_gathers):
+    for _ in range(n_gathers):
         clean = generate_clean_gather(
             n_traces=n_traces,
             rng=rng,

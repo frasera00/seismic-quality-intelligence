@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import numpy as np
-from scipy import signal as sig
 from scipy.fft import rfft, rfftfreq
 
 
@@ -115,7 +114,6 @@ def spectral_entropy(trace: np.ndarray, dt: float, eps: float = 1e-12) -> float:
     if trace.size == 0:
         raise ValueError("trace must not be empty")
 
-    n = len(trace)
     spectrum = np.abs(rfft(trace))
     power = spectrum**2
     total = np.sum(power)

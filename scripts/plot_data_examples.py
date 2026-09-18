@@ -131,7 +131,6 @@ def main() -> None:
     n_train = int(0.7 * len(X))
     rng = np.random.default_rng(data_cfg["seed"] + 1)
     perm = rng.permutation(len(X))
-    train_idx = perm[:n_train]
     val_idx = perm[n_train:]
 
     X_val = X[val_idx]

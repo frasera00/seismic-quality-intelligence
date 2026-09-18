@@ -7,7 +7,6 @@ from typing import Literal
 import numpy as np
 from sklearn.ensemble import IsolationForest
 
-
 DetectorType = Literal["isolation_forest"]
 
 
@@ -39,10 +38,7 @@ def train_isolation_forest(
     model : sklearn.ensemble.IsolationForest
         Trained Isolation Forest model.
     """
-    if max_samples is None:
-        max_samples_param = "auto"
-    else:
-        max_samples_param = max_samples
+    max_samples_param = "auto" if max_samples is None else max_samples
 
     model = IsolationForest(
         n_estimators=n_estimators,
