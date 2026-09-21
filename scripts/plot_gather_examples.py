@@ -52,7 +52,7 @@ def plot_gather(
 
         ax.text(
             offset,
-            time.max()-0.3,
+            time.max() - 0.3,
             str(anomaly_types[trace_index]),
             rotation=90,
             color="black",

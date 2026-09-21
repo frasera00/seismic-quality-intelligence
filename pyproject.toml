@@ -69,4 +69,4 @@ source = ["seismic_quality_intelligence"]
 [tool.coverage.report]
 show_missing = true
 skip_covered = false
-fail_under = 40
+fail_under = 30

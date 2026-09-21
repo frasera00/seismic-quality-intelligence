@@ -5,7 +5,6 @@ from __future__ import annotations
 import numpy as np
 from scipy.fft import rfft, rfftfreq
 
-
 FEATURE_NAMES = [
     "rms_amplitude",
     "peak_to_peak",
