@@ -47,7 +47,7 @@ The workflow produces a full seismic-gather overlay containing:
 - A learned high-confidence alert threshold
 - A configurable uncertainty-score band
 
- ![Calibrated seismic QC prediction overlay](docs/images/gather_prediction_overlay.png)
+ ![Calibrated seismic QC prediction overlay](docs/gather_prediction_overlay.png)
 
 ## Synthetic Data
 
